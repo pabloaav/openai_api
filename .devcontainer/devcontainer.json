@@ -1,0 +1,28 @@
+{
+  "name": "OpenAI Python Dev",
+  "image": "python:3.13-slim",
+  "workspaceFolder": "/workspace",
+  
+  "extensions": [
+    "ms-python.python"
+  ],
+  
+  "settings": {
+    "python.defaultInterpreterPath": "/usr/local/bin/python"
+  },
+  
+  "postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
+  
+  "containerEnv": {
+    "PYTHONPATH": "/workspace/src",
+    "PYTHONUNBUFFERED": "1"
+  },
+  
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ],
+  
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  }
+}
