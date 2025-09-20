@@ -18,7 +18,16 @@ load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
-def encode_image_to_base64(image_path):
+def encode_image_to_base64(image_path: str):
+    """
+    Codifica una imagen en formato base64.
+
+    Args:
+        image_path (str): Ruta al archivo de imagen que se desea codificar.
+
+    Returns:
+        str: Cadena de texto en base64 que representa la imagen codificada.
+    """
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode("utf-8")
 
